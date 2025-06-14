@@ -1,14 +1,6 @@
 import React from "react"
 import UserCard from "./UserCard"
-
-interface User {
-  id: number
-  name: string
-  email: string
-  company: {
-    name: string
-  }
-}
+import { User } from "@/types/user"
 
 interface UserListProps {
   users: User[]
@@ -23,11 +15,10 @@ export default function UserList({ users }: UserListProps) {
           id={user.id}
           name={user.name}
           email={user.email}
-          company={user.company.name}
+          company={user.company}
         />
       ))}
-      
-      
+
     </div>
   )
 }

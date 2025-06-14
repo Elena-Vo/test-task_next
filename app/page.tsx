@@ -1,15 +1,8 @@
 
 import UserCard from "@/components/UserCard";
 import UserList from "@/components/UserList";
+import { User } from "@/types/user"
 
-interface User {
-  id: number
-  name: string
-  email: string
-  company: {
-    name: string
-  }
-}
 
 export default async function Home() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users")

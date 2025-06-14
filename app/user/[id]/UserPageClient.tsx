@@ -11,16 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: { street: string; city: string };
-  phone: string;
-  website: string;
-  company: { name: string };
-}
+import { User } from "@/types/user"
+
 
 export default function UserPageClient({ user }: { user: User }) {
   return (
@@ -29,13 +21,26 @@ export default function UserPageClient({ user }: { user: User }) {
         <CardTitle className="text-2xl font-bold text-gray-900">{user.name}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3 text-gray-700">
-        <p><strong>Username:</strong> {user.username}</p>
+        {user.username && (
+          <p><strong>Username:</strong> {user.username}</p>
+        )}
         <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Адрес:</strong> {user.address.street}, {user.address.city}</p>
-        <p><strong>Телефон:</strong> {user.phone}</p>
-        <p><strong>Вебсайт:</strong> {user.website}</p>
+
+        {user.address && (
+          <p><strong>Адрес:</strong> {user.address.street}, {user.address.city}</p>
+        )}
+
+        {user.phone && (
+          <p><strong>Телефон:</strong> {user.phone}</p>
+        )}
+
+        {user.website && (
+          <p><strong>Вебсайт:</strong> {user.website}</p>
+        )}
+
         <p><strong>Компания:</strong> {user.company.name}</p>
       </CardContent>
+      
       <CardFooter className="justify-end">
         <Link
           href="/"

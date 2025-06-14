@@ -9,13 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import Link from "next/link";
+import { User } from "@/types/user"
 
-interface UserCardProps {
-  id: number
-  name: string
-  email: string
-  company: string
-}
+type UserCardProps = Pick<User, "id" | "name" | "email" | "company">
+
 
 export default function UserCard({ id, name, email, company }: UserCardProps) {
   return (
@@ -25,7 +22,7 @@ export default function UserCard({ id, name, email, company }: UserCardProps) {
         <CardDescription className="text-gray-500">{email}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-gray-600">Компания: <span className="font-semibold">{company}</span></p>
+        <p className="text-sm text-gray-600">Компания: <span className="font-semibold">{company.name}</span></p>
       </CardContent>
       <CardFooter>
         <Link href={`/user/${id}`}>
