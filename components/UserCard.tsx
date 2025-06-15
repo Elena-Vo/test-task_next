@@ -1,18 +1,16 @@
-import React from "react"
+import React from "react";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import Link from "next/link";
-import { User } from "@/types/user"
+import { User } from "@/types/user";
 
-type UserCardProps = Pick<User, "id" | "name" | "email" | "company">
-
+type UserCardProps = Pick<User, "id" | "name" | "email" | "company">;
 
 export default function UserCard({ id, name, email, company }: UserCardProps) {
   return (
@@ -21,17 +19,24 @@ export default function UserCard({ id, name, email, company }: UserCardProps) {
         <CardTitle className="text-xl text-gray-900">{name}</CardTitle>
         <CardDescription className="text-gray-500">{email}</CardDescription>
       </CardHeader>
-      <CardContent>
-        <p className="text-sm text-gray-600">Компания: <span className="font-semibold">{company.name}</span></p>
+      <CardContent className="space-y-1 text-gray-700 text-sm">
+        <p>
+          <strong>Компания:</strong> {company.name}
+        </p>
+        <p>
+          <strong>Бизнес:</strong> {company.bs}
+        </p>
+        <p>
+          <strong>Слоган:</strong> <em>{company.catchPhrase}</em>
+        </p>
       </CardContent>
       <CardFooter>
         <Link href={`/user/${id}`}>
           <button className="text-blue-600 hover:underline text-sm font-medium transition-colors duration-200 hover:cursor-pointer">
-          Смотреть профиль →
-        </button>
+            Смотреть профиль →
+          </button>
         </Link>
-        
       </CardFooter>
     </Card>
-  )
+  );
 }

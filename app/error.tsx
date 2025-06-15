@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 interface ErrorProps {
   error: Error;
@@ -8,7 +8,9 @@ interface ErrorProps {
 export default function Error({ error, reset }: ErrorProps) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center space-y-4">
-      <h2 className="text-2xl text-red-600 font-semibold">Произошла ошибка 😢</h2>
+      <h2 className="text-2xl text-red-600 font-semibold">
+        Произошла ошибка 😢
+      </h2>
       <p className="text-gray-700">{error.message}</p>
       <button
         onClick={() => reset()}

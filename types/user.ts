@@ -10,6 +10,10 @@ export interface User {
   phone?: string
   website?: string
   company: {
-    name: string}
+    name: string;
+    catchPhrase: string;
+    bs: string;
+
+  }
   
 }
